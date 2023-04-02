@@ -1,6 +1,10 @@
 //step1 - define some basix variables
 let display = document.getElementById("clock");
 let dateDisplay = document.querySelector(".date");
+const audio = new Audio('/assets/music.mp3');
+audio.loop = true;
+let alarmTime = null;
+let alarmTimeOut = null;
 //step2 - display the clock
 function updateTime(){
 let date = new Date();
@@ -25,4 +29,18 @@ function formateTime(time) {
 setInterval(updateTime, 1000);
 
 //step3 - set Alarm
+function setAlarmTime(value){
+      alarmTime = value;
+}
+
+function setAlarm(){
+    const currentTime = new Date();
+    const setupTime = new Date(alarmTime);
+    if(setupTime > currentTime){
+        const timeToAlarm = setupTime.getTime() - currentTime.getTime();
+        alarmTimeOut = setTimeout(function() {
+            audio.play(); //this is play function of audio object
+        }, timeToAlarm);
+    }
+}
 //step4 - stop the alarm
