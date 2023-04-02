@@ -44,3 +44,10 @@ function setAlarm(){
     }
 }
 //step4 - stop the alarm
+
+function clearAlarm(){
+    audio.pause();
+    if(alarmTimeOut){
+        clearTimeout(alarmTimeOut); //this is clear function of timeout object
+    }
+}
