@@ -1,8 +1,6 @@
 body {
     padding: 0px;
     margin: 0px;
-    height: 100%;
-    width: 100%;
     padding: 15px;
     background-color: #e3edf7;
     display: flex;
@@ -10,6 +8,7 @@ body {
     align-items: center;
 }
 .outer-div{
+    margin-top: 5%;
     height: 650px;
     width: 500px;
     border-radius: 15px;

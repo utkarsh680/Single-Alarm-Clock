@@ -2,6 +2,9 @@
 let display = document.getElementById("clock");
 let dateDisplay = document.querySelector(".date");
 const audio = new Audio('/assets/music.mp3');
+let dateAndTimeDisplay = document.getElementById('datetime');
+let set_alarm = document.getElementById('start');
+let Main_box = document.querySelector('.outer-div');
 audio.loop = true;
 let alarmTime = null;
 let alarmTimeOut = null;
@@ -31,9 +34,14 @@ setInterval(updateTime, 1000);
 //step3 - set Alarm
 function setAlarmTime(value){
       alarmTime = value;
+    if (alarmTime === value){
+        setAlarm();
+        set_alarm.style.backgroundColor = 'rgb(190, 243, 252)';
+    }
 }
 
 function setAlarm(){
+    dateAndTimeDisplay.style.display = 'block';
     const currentTime = new Date();
     const setupTime = new Date(alarmTime);
     if(setupTime > currentTime){
@@ -46,6 +54,8 @@ function setAlarm(){
 //step4 - stop the alarm
 
 function clearAlarm(){
+    set_alarm.style.backgroundColor = '#e3edf7';
+    dateAndTimeDisplay.style.display = 'none';
     audio.pause();
     if(alarmTimeOut){
         clearTimeout(alarmTimeOut); //this is clear function of timeout object
