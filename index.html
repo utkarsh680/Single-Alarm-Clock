@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>Alarm Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="outer-div">
+        <div id="container">
+
+            <h1 class="date">
+                Sun Apr 02 2023 21:58:00 GMT+0530 (India Standard Time)
+            </h1>
+            <div id="clock">
+                21:59:45
+            </div>
+    
+            <div>
+                <input 
+                type="datetime-local" 
+                id="datetime" 
+                onchange="setAlarmTime(this.value)"
+                style="display: block;" >
+              </div>
+              <div class="working">
+                <div>
+                  <button id="start" onclick="setAlarm()">Set Alarm</button>
+                </div>
+                <div>
+                  <button id="stop" style="margin-left: 40px;" onclick="clearAlarm()">Clear Alarm</button> 
+                </div>  
+              </div>
+
+        </div>
+        
+    </div>
+    <script src="script.js" ></script>
+</body>
+</html>
