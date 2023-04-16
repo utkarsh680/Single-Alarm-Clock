@@ -5,6 +5,8 @@ const audio = new Audio('/assets/music.mp3');
 let dateAndTimeDisplay = document.getElementById('datetime');
 let set_alarm = document.getElementById('start');
 let Main_box = document.querySelector('.outer-div');
+let am_pm_text_display = document.getElementById('am-pm-text');
+let clock_display = document.getElementById('clock-display');
 audio.loop = true;
 let alarmTime = null;
 let alarmTimeOut = null;
@@ -14,9 +16,12 @@ let date = new Date();
 let hours = formateTime(date.getHours());
 let minutes = formateTime(date.getMinutes());
 let seconds = formateTime(date.getSeconds());
-
-display.innerHTML = `${hours}:${minutes}:${seconds}`;
 dateDisplay.innerHTML = `${date}`;
+am_pm_text_display.innerHTML = `${hours < 12 ? 'AM' : 'PM'}`;
+
+clock_display.innerHTML = `${hours}:${minutes}:${seconds}`;
+
+
 }
 
 //function for applying 0 before single digit
